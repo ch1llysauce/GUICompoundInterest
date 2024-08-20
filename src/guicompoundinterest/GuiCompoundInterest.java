@@ -30,14 +30,14 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         label.setFont(set);
         label.setForeground(new Color(0x1961dd));
     }
-    
-    public void LabelTabs(JLabel label){
+
+    public void LabelTabs(JLabel label) {
         Font set = new Font("Arial", Font.BOLD, 14);
         label.setFont(set);
         label.setForeground(new Color(0x1961dd));
     }
-    
-    public void LabelName(JLabel label){
+
+    public void LabelName(JLabel label) {
         Font set = new Font("Arial", Font.PLAIN, 14);
         label.setFont(set);
         label.setForeground(new Color(0x1961dd));
@@ -50,7 +50,7 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         tField.setFont(set);
         tField.setColumns(20);
         tField.setForeground(new Color(0x1961dd));
-        
+
         this.add(tField);
         this.setVisible(true);
     }
@@ -75,10 +75,9 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         lblTitle = new JLabel("Compound Interest Calculator", SwingConstants.CENTER);
         lblTitle.setFont(new Font("Arial", Font.BOLD, 100));
         lblTitle.setForeground(new Color(0x1961dd));
-        lblTitle.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0)); 
+        lblTitle.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
         lblTitle.setPreferredSize(new Dimension(400, 150)); // Adjust this based on your needs
         LabelDesign(lblTitle);
-
 
         // Initialize Buttons
         btntime = new JButton("Time");
@@ -108,12 +107,12 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         lblName.setForeground(new Color(0x1961dd));
         lblName.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0));
         LabelName(lblName);
-        
+
         // Add Components to Main Panel
         panelMain.add(lblTitle, BorderLayout.NORTH);
         panelMain.add(panelAction, BorderLayout.CENTER);
         panelMain.add(lblName, BorderLayout.SOUTH);
-                
+
         // Add Main Panel to Frame
         add(panelMain, BorderLayout.CENTER);
         add(new JScrollPane(dispArea), BorderLayout.SOUTH);
@@ -149,21 +148,21 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         GridBagConstraints gbc = new GridBagConstraints();
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         PanelDesign(panel);
-        
+
         lblTitle = new JLabel("Solve for Time", SwingConstants.CENTER);
         lblTitle.setFont(new Font("Arial", Font.BOLD, 20));
         lblTitle.setForeground(new Color(0x2596be));
         lblTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         LabelDesign(lblTitle);
-        
+
         //Title
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(0,0,20,0); //Space below the title
+        gbc.insets = new Insets(0, 0, 20, 0); //Space below the title
         panel.add(lblTitle, gbc);
-        
+
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.WEST;
 
@@ -182,59 +181,58 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         JTextField FinalAmountText = new JTextField(10);
         JTextField NomRateText = new JTextField(10);
         JTextField NumInterestText = new JTextField(10);
-        
+
         Dimension textFieldSize = new Dimension(200, 25);
         PrinAmountText.setPreferredSize(textFieldSize);
         FinalAmountText.setPreferredSize(textFieldSize);
         NomRateText.setPreferredSize(textFieldSize);
         NumInterestText.setPreferredSize(textFieldSize);
-        
+
         TFieldDesign(PrinAmountText);
         TFieldDesign(FinalAmountText);
         TFieldDesign(NomRateText);
         TFieldDesign(NumInterestText);
-        
+
         //Setting up the labels and text fields in the grid
         gbc.gridx = 0;
         gbc.gridy = 1;
         panel.add(PrincipalAmount, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(PrinAmountText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 2;
         panel.add(FinalAmount, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(FinalAmountText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 3;
         panel.add(NominalRate, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(NomRateText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 4;
         panel.add(NumInterest, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(NumInterestText, gbc);
-        
+
         //Calculate Button
         gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(20,0,0,0); //Space above button
+        gbc.insets = new Insets(20, 0, 0, 0); //Space above button
         JButton calculate = new JButton("Calculate");
         ButtonDesign(calculate);
         calculate.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(calculate, gbc);
 
-        
         calculate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -249,9 +247,8 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
                     double NumInterest = Double.parseDouble(NumInterestText.getText());
 
                     CalculateTime calculate = new CalculateTime(PrinAmount, FinalAmount, NomRate, NumInterest);
-                    
-                    double calculatedTime = calculate.calculateTime();
 
+                    double calculatedTime = calculate.calculateTime();
 
                     JOptionPane.showMessageDialog(TimeWindow, "The time is: " + calculatedTime);
                 } else {
@@ -260,14 +257,13 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
             }
 
         });
-        
+
         TimeWindow.add(panel, BorderLayout.CENTER);
         TimeWindow.setVisible(true);
-      
+
     }
-    
-    
-    private void showFinalAmountWindow(){
+
+    private void showFinalAmountWindow() {
         JFrame FinalAmountWin = new JFrame("Final Amount");
         FinalAmountWin.setSize(400, 400);
         FinalAmountWin.setResizable(false);
@@ -277,25 +273,24 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         GridBagConstraints gbc = new GridBagConstraints();
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         PanelDesign(panel);
-        
+
         lblTitle = new JLabel("Solve for the Final Amount", SwingConstants.CENTER);
         lblTitle.setFont(new Font("Arial", Font.BOLD, 20));
         lblTitle.setForeground(new Color(0x2596be));
         lblTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         LabelDesign(lblTitle);
 
-        
         //Title
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(0,0,20,0); //Space below the title
+        gbc.insets = new Insets(0, 0, 20, 0); //Space below the title
         panel.add(lblTitle, gbc);
-        
+
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.WEST;
-        
+
         //Label Setup
         JLabel PrincipalAmount = new JLabel("Principal Amount: ");
         JLabel Time = new JLabel("Time (in years): ");
@@ -311,13 +306,13 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         JTextField TimeText = new JTextField(10);
         JTextField NomRateText = new JTextField(10);
         JTextField NumInterestText = new JTextField(10);
-        
+
         Dimension textFieldSize = new Dimension(200, 25);
         PrinAmountText.setPreferredSize(textFieldSize);
         TimeText.setPreferredSize(textFieldSize);
         NomRateText.setPreferredSize(textFieldSize);
         NumInterestText.setPreferredSize(textFieldSize);
-        
+
         TFieldDesign(PrinAmountText);
         TFieldDesign(TimeText);
         TFieldDesign(NomRateText);
@@ -327,42 +322,42 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         gbc.gridx = 0;
         gbc.gridy = 1;
         panel.add(PrincipalAmount, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(PrinAmountText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 2;
         panel.add(Time, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(TimeText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 3;
         panel.add(NominalRate, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(NomRateText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 4;
         panel.add(NumInterest, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(NumInterestText, gbc);
-        
+
         //Calculate Button
         gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(20,0,0,0); //Space above button
+        gbc.insets = new Insets(20, 0, 0, 0); //Space above button
         JButton calculate = new JButton("Calculate");
         ButtonDesign(calculate);
         calculate.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(calculate, gbc);
-        
+
         calculate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -377,9 +372,9 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
                     double NumInterest = Double.parseDouble(NumInterestText.getText());
 
                     FinalAmount calculatefinal = new FinalAmount(PrinAmount, Time, NomRate, NumInterest);
-                    
+
                     double FinalAmount = calculatefinal.calculateFinal();
-                    
+
                     JOptionPane.showMessageDialog(FinalAmountWin, "The Final Amount is " + FinalAmount);
                 } else {
                     JOptionPane.showMessageDialog(FinalAmountWin, "Invalid Input!");
@@ -387,15 +382,14 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
             }
 
         });
-        
+
         FinalAmountWin.add(panel);
         FinalAmountWin.setVisible(true);
-          
+
     }
 
-    
-    private void showPrincipalAmountWindow(){
-    JFrame PrinAmountWin = new JFrame("Principal Amount");
+    private void showPrincipalAmountWindow() {
+        JFrame PrinAmountWin = new JFrame("Principal Amount");
         PrinAmountWin.setSize(400, 400);
         PrinAmountWin.setResizable(false);
         PrinAmountWin.setLocationRelativeTo(this);
@@ -404,24 +398,24 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         GridBagConstraints gbc = new GridBagConstraints();
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         PanelDesign(panel);
-        
+
         lblTitle = new JLabel("Solve for the Principal Amount", SwingConstants.CENTER);
         lblTitle.setFont(new Font("Arial", Font.BOLD, 20));
         lblTitle.setForeground(new Color(0x2596be));
         lblTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
         LabelDesign(lblTitle);
-        
+
         //Title
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(0,0,20,0); //Space below the title
+        gbc.insets = new Insets(0, 0, 20, 0); //Space below the title
         panel.add(lblTitle, gbc);
 
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.WEST;
-        
+
         //Label Setup
         JLabel FinalAmount = new JLabel("Final Amount: ");
         JLabel Time = new JLabel("Time (in years): ");
@@ -437,10 +431,10 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         JTextField TimeText = new JTextField(10);
         JTextField NomRateText = new JTextField(10);
         JTextField NumInterestText = new JTextField(10);
-        
+
         Dimension textFieldSize = new Dimension(200, 25);// Width = 200 pixels, Height = 30 pixels
         FinalAmountText.setPreferredSize(textFieldSize);
-        TimeText.setPreferredSize(textFieldSize);  
+        TimeText.setPreferredSize(textFieldSize);
         NomRateText.setPreferredSize(textFieldSize);
         NumInterestText.setPreferredSize(textFieldSize);
 
@@ -453,43 +447,42 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         gbc.gridx = 0;
         gbc.gridy = 1;
         panel.add(FinalAmount, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(FinalAmountText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 2;
         panel.add(Time, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(TimeText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 3;
         panel.add(NominalRate, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(NomRateText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 4;
         panel.add(NumInterest, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(NumInterestText, gbc);
-        
+
         //Calculate Button
         gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(20,0,0,0); //Space above button
+        gbc.insets = new Insets(20, 0, 0, 0); //Space above button
         JButton calculate = new JButton("Calculate");
         ButtonDesign(calculate);
         calculate.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(calculate, gbc);
 
-        
         calculate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 
@@ -503,9 +496,9 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
                     double NumInterest = Double.parseDouble(NumInterestText.getText());
 
                     PrincipalAmount calculate = new PrincipalAmount(FinalAmount, Time, NomRate, NumInterest);
-                    
+
                     double PrincipalAmount = calculate.calculatePrin();
-                    
+
                     JOptionPane.showMessageDialog(PrinAmountWin, "The Principal Amount is: " + PrincipalAmount);
                 } else {
                     JOptionPane.showMessageDialog(PrinAmountWin, "Invalid Input!");
@@ -516,12 +509,11 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
 
         PrinAmountWin.add(panel);
         PrinAmountWin.setVisible(true);
-          
+
     }
-    
-    
-    private void showNominalRateWindow(){
-    JFrame NomRateWin = new JFrame("Nominal Rate");
+
+    private void showNominalRateWindow() {
+        JFrame NomRateWin = new JFrame("Nominal Rate");
         NomRateWin.setSize(400, 400);
         NomRateWin.setResizable(false);
         NomRateWin.setLocationRelativeTo(this);
@@ -530,7 +522,7 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         GridBagConstraints gbc = new GridBagConstraints();
         panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         PanelDesign(panel);
-        
+
         lblTitle = new JLabel("Solve for the Nominal Rate", SwingConstants.CENTER);
         lblTitle.setFont(new Font("Arial", Font.BOLD, 20));
         lblTitle.setForeground(new Color(0x2596be));
@@ -542,12 +534,12 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         gbc.gridy = 0;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(0,0,20,0); //Space below the title
+        gbc.insets = new Insets(0, 0, 20, 0); //Space below the title
         panel.add(lblTitle, gbc);
 
         gbc.gridwidth = 1;
         gbc.anchor = GridBagConstraints.WEST;
-        
+
         //Label Setup
         JLabel FinalAmount = new JLabel("Final Amount: ");
         JLabel Time = new JLabel("Time (in years): ");
@@ -563,13 +555,13 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         JTextField TimeText = new JTextField();
         JTextField FinalAmountText = new JTextField();
         JTextField NumInterestText = new JTextField();
-        
+
         Dimension textFieldSize = new Dimension(200, 25);// Width = 200 pixels, Height = 30 pixels
         PrinAmountText.setPreferredSize(textFieldSize);
         FinalAmountText.setPreferredSize(textFieldSize);
-        TimeText.setPreferredSize(textFieldSize);  
+        TimeText.setPreferredSize(textFieldSize);
         NumInterestText.setPreferredSize(textFieldSize);
-        
+
         TFieldDesign(PrinAmountText);
         TFieldDesign(TimeText);
         TFieldDesign(FinalAmountText);
@@ -579,42 +571,42 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         gbc.gridx = 0;
         gbc.gridy = 1;
         panel.add(FinalAmount, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(FinalAmountText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 2;
         panel.add(Time, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(TimeText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 3;
         panel.add(PrinAmount, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(PrinAmountText, gbc);
-        
+
         gbc.gridx = 0;
         gbc.gridy = 4;
         panel.add(NumInterest, gbc);
-        
+
         gbc.gridx = 1;
         panel.add(NumInterestText, gbc);
-        
+
         //Calculate Button
         gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
-        gbc.insets = new Insets(20,0,0,0); //Space above button
+        gbc.insets = new Insets(20, 0, 0, 0); //Space above button
         JButton calculate = new JButton("Calculate");
         ButtonDesign(calculate);
         calculate.setAlignmentX(Component.CENTER_ALIGNMENT);
         panel.add(calculate, gbc);
-        
+
         calculate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -629,9 +621,9 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
                     double NumInterest = Double.parseDouble(NumInterestText.getText());
 
                     NominalRate calculate = new NominalRate(PrinAmount, Time, FinalAmount, NumInterest);
-                    
+
                     double NominalRate = calculate.calculateNomRate();
-                    
+
                     JOptionPane.showMessageDialog(NomRateWin, "The Principal Amount is: " + NominalRate);
                 } else {
                     JOptionPane.showMessageDialog(NomRateWin, "Invalid Input!");
@@ -642,7 +634,7 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
 
         NomRateWin.add(panel);
         NomRateWin.setVisible(true);
-          
+
     }
 
     public static void main(String[] args) {
