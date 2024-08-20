@@ -29,7 +29,7 @@ public class NominalRate {
                 return NumInterest;
             }
             
-            public double calculateFinal(){
+            public double calculateNomRate(){
                 return NumInterest*((Math.pow((FinalAmount/PrinAmount),1/(NumInterest*Time)))-1);
             }
 }
