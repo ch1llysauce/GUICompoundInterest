@@ -43,6 +43,14 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         label.setForeground(new Color(0x1961dd));
     }
 
+    private void jTextFieldKeyType(java.awt.event.KeyEvent evt){
+    char c = evt.getKeyChar();
+                
+    if(!Character.isDigit(c) && c != KeyEvent.VK_BACK_SPACE && c != KeyEvent.VK_DELETE){
+    evt.consume();
+        }
+    }
+    
     private Color bgColor = new Color(0xCCF2C4);
 
     public void TFieldDesign(JTextField tField) {
@@ -182,6 +190,31 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         JTextField NomRateText = new JTextField(10);
         JTextField NumInterestText = new JTextField(10);
 
+        //Adding Key Listeners to restrict input
+        PrinAmountText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        FinalAmountText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        NomRateText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        NumInterestText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
         Dimension textFieldSize = new Dimension(200, 25);
         PrinAmountText.setPreferredSize(textFieldSize);
         FinalAmountText.setPreferredSize(textFieldSize);
@@ -307,6 +340,31 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         JTextField NomRateText = new JTextField(10);
         JTextField NumInterestText = new JTextField(10);
 
+        //Adding Key Listeners to restrict input
+        PrinAmountText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        TimeText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        NomRateText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        NumInterestText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
         Dimension textFieldSize = new Dimension(200, 25);
         PrinAmountText.setPreferredSize(textFieldSize);
         TimeText.setPreferredSize(textFieldSize);
@@ -432,6 +490,32 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         JTextField NomRateText = new JTextField(10);
         JTextField NumInterestText = new JTextField(10);
 
+        //Adding Key Listeners to restrict input
+        FinalAmountText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        TimeText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        NomRateText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        NumInterestText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        
         Dimension textFieldSize = new Dimension(200, 25);// Width = 200 pixels, Height = 30 pixels
         FinalAmountText.setPreferredSize(textFieldSize);
         TimeText.setPreferredSize(textFieldSize);
@@ -484,8 +568,11 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         panel.add(calculate, gbc);
 
         calculate.addActionListener(new ActionListener() {
+            
+            
             public void actionPerformed(ActionEvent e) {
 
+                
                 if (!FinalAmountText.getText().isEmpty() && !TimeText.getText().isEmpty()
                         && !NomRateText.getText().isEmpty()
                         && !NumInterestText.getText().isEmpty()) {
@@ -556,6 +643,31 @@ public final class GuiCompoundInterest extends JFrame implements ActionListener 
         JTextField FinalAmountText = new JTextField();
         JTextField NumInterestText = new JTextField();
 
+        //Adding Key Listeners to restrict input
+        PrinAmountText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        TimeText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        FinalAmountText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
+        NumInterestText.addKeyListener(new KeyAdapter(){
+            public void keyTyped(KeyEvent evt){
+                jTextFieldKeyType(evt);
+            }
+        });
+        
         Dimension textFieldSize = new Dimension(200, 25);// Width = 200 pixels, Height = 30 pixels
         PrinAmountText.setPreferredSize(textFieldSize);
         FinalAmountText.setPreferredSize(textFieldSize);
